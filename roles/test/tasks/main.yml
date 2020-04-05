@@ -1,0 +1,6 @@
+---
+# tasks file for test
+- name: "Add vim package"
+  package: 
+    name: vim
+    state: present
