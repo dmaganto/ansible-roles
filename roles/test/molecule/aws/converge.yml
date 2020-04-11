@@ -1,9 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: "test"
-  vars:
-    pip:
-      exec: "pip-3.6"
-      repo: ""
+  tasks:
+    - name: "Include test"
+      include_role:
+        name: "test"

@@ -1,13 +1,15 @@
 ---
 # tasks file for test
-- name: "Add vim package [CentOS]"
+- name: "Add vim package [RedHat based OS]"
   package:
     name: vim
     state: present
   when: ansible_facts['os_family'] == "RedHat"
-- name: "Add vim package [Ubuntu]"
+  register: install
+- name: "Add vim package [Debian based OS]"
   apt:
     name: vim
     update_cache: yes
     state: present
   when: ansible_facts['os_family'] == "Debian"
+  register: install

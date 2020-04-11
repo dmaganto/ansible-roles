@@ -4,6 +4,15 @@
 - name: Verify
   hosts: all
   tasks:
-  - name: Example assertion
+  - name: Gather the rpm package facts
+    package_facts:
+     manager: auto
+#  - name: Print the rpm package facts
+#    debug:
+#      var: ansible_facts.packages
+  - name: Verify package vim is installed
     assert:
-      that: true
+      that: 
+        - "'vim-common' in ansible_facts.packages"
+      fail_msg: "'vim' package isn't installed"
+      success_msg: "'vim' package is succesfully installed"

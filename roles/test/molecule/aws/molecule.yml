@@ -4,7 +4,7 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
+  - name: amazonlinux
     image: amazonlinux:2018.03.0.20191219.0-with-sources
     pre_build_image: true
 provisioner:
