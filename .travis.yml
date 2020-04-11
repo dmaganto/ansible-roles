@@ -1,0 +1,18 @@
+---
+language: python
+python:
+  - "2.7"
+  - "3.6"
+env:
+  - role=test
+  - role=prueba
+services:
+  - docker
+install:
+  - pip install molecule docker molecule[lint] ansible-lint
+before_script: 
+  - cd roles/$role/
+script:
+  - molecule --version
+  - ansible --version
+  - molecule test --all

@@ -1,0 +1,19 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: amazonlinux
+    image: amazonlinux:2018.03.0.20191219.0-with-sources
+    pre_build_image: true
+provisioner:
+  name: ansible
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+#  flake8
+verifier:
+  name: ansible
+#  name: testinfra

@@ -12,7 +12,7 @@
 #      var: ansible_facts.packages
   - name: Verify package vim is installed
     assert:
-      that: 
+      that:
         - "'vim-common' in ansible_facts.packages"
       fail_msg: "'vim' package isn't installed"
       success_msg: "'vim' package is succesfully installed"
