@@ -4,8 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: centos
-    image: docker.io/pycontribs/centos:7
+  - name: instance
+    image: amazonlinux:2018.03.0.20191219.0-with-sources
     pre_build_image: true
 provisioner:
   name: ansible
@@ -13,5 +13,7 @@ lint: |
   set -e
   yamllint .
   ansible-lint
+#  flake8
 verifier:
   name: ansible
+#  name: testinfra
